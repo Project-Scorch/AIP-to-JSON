@@ -44,7 +44,7 @@ def DMStoDD(coward):
 
 
 
-reader = PdfReader("testing\/1_05_NZANR_Part_71_Restricted_Areas_R.pdf")
+reader = PdfReader("testing\/1_10_NZANR_Part_71_Danger_Areas_D.pdf")
 
 pdfText = ""
 
@@ -136,16 +136,40 @@ RefactoredJson = {
 
 
 for i in range(len(refactoredPoints)):
-    feature = {
+    points = []
+    if(len(refactoredPoints[i]) > 2):
+        geomatarytype = "Polygon"
+    else:
+        geomatarytype = "Point"
+
+    for k in range(len(refactoredPoints[i]) - 1):
+        points.append(refactoredPoints[i][k + 1][1])
+  
+    if(geomatarytype == "Polygon"):
+        points.append(refactoredPoints[i][1][1])
+
+        feature = {
+            "type": "Feature",
+            "geometry": {
+                "type": geomatarytype,
+                "coordinates": [points[::-1]]
+            },
+            "properties": {
+                "Name": refactoredPoints[i][0]
+            }
+        }
+    else:
+        feature = {
         "type": "Feature",
         "geometry": {
-            "type": "Point",  # Assuming it's a LineString
-            "coordinates": refactoredPoints[i][1][1]  # Using the points dynamically
+            "type": geomatarytype,
+            "coordinates": points[0]
         },
         "properties": {
             "Name": refactoredPoints[i][0]
         }
     }
+        
     RefactoredJson["features"].append(feature)
 
     
