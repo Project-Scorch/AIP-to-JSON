@@ -1,0 +1,9 @@
+NOTES: (1) Upper Limit is expressed in FT (AMSL) or FL (Flight Level) (2) Lower Limit = SFC for all Restricted Areas
+
+Boundary line types 
+CIR (Circle),
+CWA (Clockwise Arc),
+CCA (Counterclockwise Arc),
+GRC (Great Circle),
+RHL (Rhumbline),
+FNT (geoborder i.e. a line following the road , etc)

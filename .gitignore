@@ -1,6 +1,6 @@
 #ignore folders
- testing/
-
+testing/
+output/
 *.pdf
 
 *.json

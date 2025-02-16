@@ -4,3 +4,6 @@ PIP 23.0.1
 
 ##LIBS
 pypdf
+python re (regular expression)
+python pandas (python data analisis)
+
